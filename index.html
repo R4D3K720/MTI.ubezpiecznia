@@ -24,16 +24,12 @@
     font-size: 2.8rem;
   }
   main {
-    max-width: 900px;
-    margin: 2rem auto 4rem auto;
+    max-width: 1000px;
+    margin: 2rem auto;
     padding: 0 1rem;
   }
   section {
     margin-bottom: 3rem;
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
   }
   h2 {
     color: #004aad;
@@ -53,7 +49,7 @@
     margin-bottom: 0.6rem;
   }
   .contact-form {
-    background-color: #e9f0fc;
+    background-color: white;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -93,44 +89,30 @@
     padding: 1rem 1rem;
     font-size: 0.9rem;
   }
-
-  /* Rozwijane sekcje - prosty efekt */
-  details {
-    margin-top: 1rem;
-    font-size: 1.05rem;
-    cursor: pointer;
+  .opinions {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   }
-  details summary {
-    font-weight: 600;
-    color: #004aad;
-    outline: none;
+  .opinion {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
   }
-  details[open] summary::after {
-    content: " ▲";
+  .opinion:last-child {
+    border-bottom: none;
   }
-  details summary::after {
-    content: " ▼";
-    float: right;
+  .opinion-name {
+    font-weight: bold;
+    font-size: 1.1rem;
   }
-  details p {
-    margin-top: 0.6rem;
-    line-height: 1.5;
-  }
-
-  /* Opinie klientów */
-  .review {
-    background: #f7faff;
-    border-left: 5px solid #004aad;
-    padding: 1rem 1.2rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
+  .opinion-text {
+    margin: 0.5rem 0 0 0;
     font-style: italic;
-    color: #333;
   }
-  .review strong {
-    font-weight: 700;
-    color: #004aad;
-    font-style: normal;
+  .location {
+    margin-top: 1rem;
+    font-size: 1.1rem;
   }
 </style>
 </head>
@@ -142,6 +124,11 @@
 </header>
 
 <main>
+  <section id="o-nas">
+    <h2>O nas</h2>
+    <p>MTI Ubezpieczenia w Obornikach to firma prowadzona przez Macieja Iwanickiego, która od lat pomaga klientom w wyborze najlepszych rozwiązań ubezpieczeniowych dostosowanych do ich potrzeb i budżetu.</p>
+  </section>
+
   <section id="oferta">
     <h2>Nasza oferta ubezpieczeń</h2>
     <p>W MTI oferujemy szeroki zakres ubezpieczeń dostosowanych do Twoich potrzeb i możliwości finansowych. Naszym celem jest zapewnienie najlepszej ochrony za rozsądną cenę.</p>
@@ -153,15 +140,6 @@
       <li><strong>Ubezpieczenia turystyczne:</strong> ochrona podczas podróży krajowych i zagranicznych.</li>
       <li><strong>Ubezpieczenia dla firm:</strong> kompleksowa ochrona majątku i działalności gospodarczej.</li>
     </ul>
-  </section>
-
-  <section id="o-nas">
-    <h2>O nas</h2>
-    <details>
-      <summary>Dowiedz się więcej o MTI Ubezpieczenia</summary>
-      <p>MTI Ubezpieczenia to firma z wieloletnim doświadczeniem, działająca w Obornikach. Naszym właścicielem i doradcą jest Maciej Iwanicki, który dba o najwyższy standard obsługi klienta i indywidualne podejście do każdej osoby.</p>
-      <p>Zapewniamy profesjonalne doradztwo oraz kompleksową obsługę ubezpieczeniową dostosowaną do Twoich potrzeb.</p>
-    </details>
   </section>
 
   <section id="korzysci">
@@ -177,19 +155,19 @@
     </ul>
   </section>
 
-  <section id="opinie">
+  <section id="opinie" class="opinions">
     <h2>Opinie klientów</h2>
-    <div class="review">
-      „MTI pomogło mi wybrać idealne ubezpieczenie samochodu. Profesjonalna obsługa i szybka pomoc w razie szkody.”<br>
-      <strong>- Anna K.</strong>
+    <div class="opinion">
+      <div class="opinion-name">Łukasz Nowak</div>
+      <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
     </div>
-    <div class="review">
-      „Współpraca z MTI to czysta przyjemność. Firma rzetelna i godna zaufania.”<br>
-      <strong>- Jan M.</strong>
+    <div class="opinion">
+      <div class="opinion-name">Алена Ковальская</div>
+      <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
     </div>
-    <div class="review">
-      „Dzięki MTI mam spokój ducha, wiedząc, że moja rodzina jest dobrze zabezpieczona.”<br>
-      <strong>- Katarzyna S.</strong>
+    <div class="opinion">
+      <div class="opinion-name">Piotr</div>
+      <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
     </div>
   </section>
 
@@ -210,6 +188,12 @@
       
       <button type="submit">Wyślij</button>
     </form>
+
+    <div class="location">
+      <h3>Nasza lokalizacja</h3>
+      <p>Armii Poznań 7, 64-600 Oborniki</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2422.822204204524!2d16.808133715985034!3d52.65111187975907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47041a8c36355d15%3A0x7007cced9ec6739d!2sArmii%20Pozna%C5%84%207%2C%2064-600%20Oborniki!5e0!3m2!1spl!2spl!4v1690285485080!5m2!1spl!2spl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </section>
 </main>
 
