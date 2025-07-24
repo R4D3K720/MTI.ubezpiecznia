@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MTI Ubezpieczenia</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  header {
+    background-color: #004aad;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,74,173,0.5);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+  }
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  h2 {
+    color: #004aad;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #004aad;
+    padding-bottom: 0.3rem;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  ul {
+    margin: 1rem 0 1rem 1.5rem;
+  }
+  li {
+    margin-bottom: 0.6rem;
+  }
+  .contact-form {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  button {
+    margin-top: 1.5rem;
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #003080;
+  }
+  footer {
+    background-color: #002360;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>MTI Ubezpieczenia</h1>
+  <p>Twoje bezpieczeństwo w najlepszych rękach</p>
+</header>
+
+<main>
+  <section id="oferta">
+    <h2>Nasza oferta ubezpieczeń</h2>
+    <p>W MTI oferujemy szeroki zakres ubezpieczeń dostosowanych do Twoich potrzeb i możliwości finansowych. Naszym celem jest zapewnienie najlepszej ochrony za rozsądną cenę.</p>
+    <ul>
+      <li><strong>Ubezpieczenia komunikacyjne:</strong> OC, AC, Assistance, ubezpieczenie szyb i od nieszczęśliwych wypadków.</li>
+      <li><strong>Ubezpieczenia majątkowe:</strong> domów, mieszkań, lokali użytkowych, od ognia i innych zdarzeń losowych.</li>
+      <li><strong>Ubezpieczenia na życie:</strong> ochrona finansowa Twoja i Twojej rodziny w razie nieprzewidzianych zdarzeń.</li>
+      <li><strong>Ubezpieczenia zdrowotne:</strong> prywatna opieka medyczna, szybki dostęp do specjalistów, rehabilitacja.</li>
+      <li><strong>Ubezpieczenia turystyczne:</strong> ochrona podczas podróży krajowych i zagranicznych.</li>
+      <li><strong>Ubezpieczenia dla firm:</strong> kompleksowa ochrona majątku i działalności gospodarczej.</li>
+    </ul>
+  </section>
+
+  <section id="korzysci">
+    <h2>Dlaczego warto wybrać MTI?</h2>
+    <p>Współpracując z nami zyskujesz:</p>
+    <ul>
+      <li>Indywidualne podejście i doradztwo na każdym etapie współpracy.</li>
+      <li>Konkurencyjne ceny i elastyczne warunki ubezpieczeń.</li>
+      <li>Szybką i bezproblemową likwidację szkód.</li>
+      <li>Dostęp do szerokiej sieci partnerów i placówek.</li>
+      <li>Przejrzyste i uczciwe warunki umów.</li>
+      <li>Nowoczesne narzędzia do zarządzania polisami online.</li>
+    </ul>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Masz pytania? Skontaktuj się z nami! Wypełnij formularz lub zadzwoń pod numer:</p>
+    <p><strong>Telefon: <span>664 755 344</span></strong></p>
+    
+    <form class="contact-form" action="https://formspree.io/f/xpwldzgn" method="POST">
+      <label for="name">Imię i nazwisko</label>
+      <input type="text" id="name" name="name" placeholder="Twoje imię i nazwisko" required />
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Twój adres email" required />
+      
+      <label for="message">Wiadomość</label>
+      <textarea id="message" name="message" placeholder="Napisz wiadomość..." rows="5" required></textarea>
+      
+      <button type="submit">Wyślij</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 MTI Ubezpieczenia. Wszelkie prawa zastrzeżone.
+</footer>
+
+<script>
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.');
+        form.reset();
+      } else {
+        alert('Coś poszło nie tak. Spróbuj ponownie.');
+      }
+    }).catch(() => {
+      alert('Coś poszło nie tak. Spróbuj ponownie.');
+    });
+  });
+</script>
+
+</body>
+</html>
