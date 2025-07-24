@@ -24,12 +24,16 @@
     font-size: 2.8rem;
   }
   main {
-    max-width: 1000px;
-    margin: 2rem auto;
+    max-width: 900px;
+    margin: 2rem auto 4rem auto;
     padding: 0 1rem;
   }
   section {
     margin-bottom: 3rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
   }
   h2 {
     color: #004aad;
@@ -49,7 +53,7 @@
     margin-bottom: 0.6rem;
   }
   .contact-form {
-    background-color: white;
+    background-color: #e9f0fc;
     padding: 1.5rem 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -89,6 +93,45 @@
     padding: 1rem 1rem;
     font-size: 0.9rem;
   }
+
+  /* Rozwijane sekcje - prosty efekt */
+  details {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+  details summary {
+    font-weight: 600;
+    color: #004aad;
+    outline: none;
+  }
+  details[open] summary::after {
+    content: " ▲";
+  }
+  details summary::after {
+    content: " ▼";
+    float: right;
+  }
+  details p {
+    margin-top: 0.6rem;
+    line-height: 1.5;
+  }
+
+  /* Opinie klientów */
+  .review {
+    background: #f7faff;
+    border-left: 5px solid #004aad;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    font-style: italic;
+    color: #333;
+  }
+  .review strong {
+    font-weight: 700;
+    color: #004aad;
+    font-style: normal;
+  }
 </style>
 </head>
 <body>
@@ -112,6 +155,15 @@
     </ul>
   </section>
 
+  <section id="o-nas">
+    <h2>O nas</h2>
+    <details>
+      <summary>Dowiedz się więcej o MTI Ubezpieczenia</summary>
+      <p>MTI Ubezpieczenia to firma z wieloletnim doświadczeniem, działająca w Obornikach. Naszym właścicielem i doradcą jest Maciej Iwanicki, który dba o najwyższy standard obsługi klienta i indywidualne podejście do każdej osoby.</p>
+      <p>Zapewniamy profesjonalne doradztwo oraz kompleksową obsługę ubezpieczeniową dostosowaną do Twoich potrzeb.</p>
+    </details>
+  </section>
+
   <section id="korzysci">
     <h2>Dlaczego warto wybrać MTI?</h2>
     <p>Współpracując z nami zyskujesz:</p>
@@ -123,6 +175,22 @@
       <li>Przejrzyste i uczciwe warunki umów.</li>
       <li>Nowoczesne narzędzia do zarządzania polisami online.</li>
     </ul>
+  </section>
+
+  <section id="opinie">
+    <h2>Opinie klientów</h2>
+    <div class="review">
+      „MTI pomogło mi wybrać idealne ubezpieczenie samochodu. Profesjonalna obsługa i szybka pomoc w razie szkody.”<br>
+      <strong>- Anna K.</strong>
+    </div>
+    <div class="review">
+      „Współpraca z MTI to czysta przyjemność. Firma rzetelna i godna zaufania.”<br>
+      <strong>- Jan M.</strong>
+    </div>
+    <div class="review">
+      „Dzięki MTI mam spokój ducha, wiedząc, że moja rodzina jest dobrze zabezpieczona.”<br>
+      <strong>- Katarzyna S.</strong>
+    </div>
   </section>
 
   <section id="kontakt">
