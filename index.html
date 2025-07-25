@@ -180,14 +180,18 @@
     nav {
       flex-wrap: wrap;
       gap: 1rem;
-      padding: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      height: auto;
     }
 
     nav a {
       flex: 1 1 45%;
       text-align: center;
-      font-size: 1.1rem;
-      padding: 0.7rem 0;
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
     }
 
     main {
@@ -219,6 +223,38 @@
 
     iframe {
       height: 200px !important;
+    }
+
+    /* TYLKO DLA OFERTY - układ pionowy, wyśrodkowany i kreski */
+    #oferta ul {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      max-width: 350px;
+      padding-left: 0;
+      list-style: none;
+    }
+    #oferta li {
+      display: block !important;
+      text-align: center !important;
+      border-bottom: 1px solid #004aad !important;
+      padding-bottom: 1rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+    #oferta li:last-child {
+      border-bottom: none !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    #oferta li i {
+      font-size: 1.8rem !important;
+      margin-bottom: 0.5rem !important;
+      display: block !important;
+      color: #004aad !important;
+    }
+    #oferta li strong {
+      display: block !important;
+      font-size: 1.2rem !important;
+      margin-bottom: 0.5rem !important;
     }
   }
 </style>
@@ -270,22 +306,70 @@
     </ul>
   </section>
 
-  <section id="opinie" class="opinions" style="animation-delay: 0.7s;">
-    <h2><i class="fa-solid fa-comments"></i> Opinie klientów</h2>
+<section id="opinie" class="opinions" style="animation-delay: 0.7s;">
+  <h2><i class="fa-solid fa-comments"></i> Opinie klientów</h2>
 
+  <div class="opinion">
+    <div class="opinion-name">Łukasz Nowak</div>
+    <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
+  </div>
+  <div class="opinion">
+    <div class="opinion-name">Алена Ковальская</div>
+    <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
+  </div>
+  <div class="opinion">
+    <div class="opinion-name">Piotr</div>
+    <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
+  </div>
+
+  <!-- Ukryte opinie -->
+  <div id="moreOpinions" style="display:none;">
     <div class="opinion">
-      <div class="opinion-name">Łukasz Nowak</div>
-      <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
+      <div class="opinion-name">Anna Kowalska</div>
+      <div class="opinion-text">Świetna obsługa i szybkie załatwienie sprawy!</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Алена Ковальская</div>
-      <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
+      <div class="opinion-name">Michał Nowak</div>
+      <div class="opinion-text">Profesjonalizm i indywidualne podejście do klienta.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Piotr</div>
-      <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
+      <div class="opinion-name">Ewa Zielińska</div>
+      <div class="opinion-text">Polecam każdemu, kto szuka dobrego ubezpieczenia.</div>
     </div>
-  </section>
+    <div class="opinion">
+      <div class="opinion-name">Jan Kowalczyk</div>
+      <div class="opinion-text">Błyskawiczna pomoc i świetna obsługa. Na pewno wrócę.</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Katarzyna Nowicka</div>
+      <div class="opinion-text">Zaufanie i pełen profesjonalizm. Polecam!</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Tomasz Wójcik</div>
+      <div class="opinion-text">Konkretne i szybkie rozwiązania ubezpieczeniowe.</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Monika Kamińska</div>
+      <div class="opinion-text">Sympatyczna obsługa i pomoc na każdym etapie.</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Paweł Nowak</div>
+      <div class="opinion-text">Szybka reakcja i indywidualne podejście.</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Magdalena Wiśniewska</div>
+      <div class="opinion-text">Dzięki nim czuję się bezpiecznie i pewnie.</div>
+    </div>
+    <div class="opinion">
+      <div class="opinion-name">Robert Lewandowski</div>
+      <div class="opinion-text">Profesjonalna obsługa i godne polecenia ubezpieczenia.</div>
+    </div>
+  </div>
+
+  <button id="toggleOpinionsBtn" style="margin-top:1rem; padding:0.6rem 1.2rem; cursor:pointer; border:none; border-radius:20px; background:#004aad; color:white; font-size:1rem;">
+    Pokaż więcej opinii
+  </button>
+</section>
 
   <section id="kontakt" style="animation-delay: 0.9s;">
     <h2><i class="fa-solid fa-phone"></i> Kontakt</h2>
@@ -337,7 +421,7 @@
     });
   });
 
-  // Animowany scroll z offsetem
+  // Animowany scroll z offsetem (większy offset)
   const navLinks = document.querySelectorAll('nav a');
   const navbarHeight = document.querySelector('nav').offsetHeight;
 
@@ -348,8 +432,8 @@
       const targetSection = document.getElementById(targetID);
       if (!targetSection) return;
 
-      // Pozycja sekcji minus wysokość navbaru
-      const targetPosition = targetSection.offsetTop - navbarHeight;
+      // Pozycja sekcji minus wysokość navbaru i dodatkowy offset (np. 15px)
+      const targetPosition = targetSection.offsetTop - navbarHeight - 15;
 
       window.scrollTo({
         top: targetPosition,
@@ -358,22 +442,38 @@
     });
   });
 
-  // Aktywny link w menu podczas scrollowania
+  // Aktywny link w menu podczas scrollowania z marginesem tolerancji
   const sections = document.querySelectorAll('main section');
   window.addEventListener('scroll', () => {
     let current = '';
+    const scrollPos = window.pageYOffset + navbarHeight + 20; // dodajemy tolerancję 20px
+
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - navbarHeight - 20;
-      if (pageYOffset >= sectionTop) {
+      if (scrollPos >= section.offsetTop) {
         current = section.getAttribute('id');
       }
     });
+
     navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === '#' + current) {
         link.classList.add('active');
       }
     });
+  });
+
+  // Rozwijanie opinii
+  const toggleBtn = document.getElementById('toggleOpinionsBtn');
+  const moreOpinions = document.getElementById('moreOpinions');
+
+  toggleBtn.addEventListener('click', () => {
+    if (moreOpinions.style.display === 'none') {
+      moreOpinions.style.display = 'block';
+      toggleBtn.textContent = 'Pokaż mniej opinii';
+    } else {
+      moreOpinions.style.display = 'none';
+      toggleBtn.textContent = 'Pokaż więcej opinii';
+    }
   });
 </script>
 
