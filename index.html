@@ -1,368 +1,56 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MTI Ubezpieczenia</title>
-
-<!-- Font Awesome do ikon -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-
-  /* Pasek nawigacji */
-  nav {
-    background-color: #004aad;
-    padding: 0.8rem 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 6px rgba(0,74,173,0.5);
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-  }
-  nav a:hover, nav a.active {
-    background-color: #003080;
-  }
-
-  header {
-    background-color: #004aad;
-    color: white;
-    padding: 2.5rem 1rem;
-    text-align: center;
-    box-shadow: 0 3px 8px rgba(0,74,173,0.5);
-  }
-  header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-  }
-  main {
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 0 1rem;
-  }
-  section {
-    margin-bottom: 4rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.7s forwards;
-  }
-  /* Animacja przy ładowaniu sekcji */
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  h2 {
-    color: #004aad;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid #004aad;
-    padding-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  /* Ikony przy nagłówkach */
-  h2 i {
-    color: #004aad;
-    font-size: 1.5rem;
-  }
-  p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-  }
-  ul {
-    margin: 1rem 0 1rem 1.5rem;
-  }
-  li {
-    margin-bottom: 0.7rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-  }
-  /* Ikony przy punktach oferty */
-  li i {
-    color: #004aad;
-    font-size: 1.2rem;
-  }
-  .contact-form {
-    background-color: white;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  label {
-    display: block;
-    margin-top: 1.1rem;
-    font-weight: 600;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 0.6rem;
-    margin-top: 0.3rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    box-sizing: border-box;
-  }
-  button {
-    margin-top: 1.7rem;
-    background-color: #004aad;
-    color: white;
-    border: none;
-    padding: 0.9rem 2.5rem;
-    font-size: 1.15rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #003080;
-  }
-  footer {
-    background-color: #002360;
-    color: #bbb;
-    text-align: center;
-    padding: 1.2rem 1rem;
-    font-size: 0.95rem;
-  }
-  .opinions {
-    background-color: white;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  .opinion {
-    border-bottom: 1px solid #ccc;
-    padding: 1.2rem 0;
-  }
-  .opinion:last-child {
-    border-bottom: none;
-  }
-  .opinion-name {
-    font-weight: bold;
-    font-size: 1.15rem;
-  }
-  .opinion-text {
-    margin: 0.6rem 0 0 0;
-    font-style: italic;
-  }
-  .location {
-    margin-top: 1.5rem;
-    font-size: 1.15rem;
-  }
-
-  /* RESPONSYWNOŚĆ - mobile */
-  @media (max-width: 768px) {
-    nav {
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-      height: auto;
-    }
-
-    nav a {
-      flex: 1 1 45%;
-      text-align: center;
-      font-size: 0.95rem;
-      padding: 0.4rem 0;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
-    }
-
-    main {
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    p, li {
-      font-size: 1rem;
-    }
-
-    .contact-form {
-      padding: 1rem 1rem;
-    }
-
-    button {
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.2rem;
-    }
-
-    iframe {
-      height: 200px !important;
-    }
-
-    /* TYLKO DLA OFERTY - układ pionowy, wyśrodkowany i kreski */
-    #oferta ul {
-      margin-left: auto !important;
-      margin-right: auto !important;
-      max-width: 350px;
-      padding-left: 0;
-      list-style: none;
-    }
-    #oferta li {
-      display: block !important;
-      text-align: center !important;
-      border-bottom: 1px solid #004aad !important;
-      padding-bottom: 1rem !important;
-      margin-bottom: 1.5rem !important;
-    }
-    #oferta li:last-child {
-      border-bottom: none !important;
-      margin-bottom: 0 !important;
-      padding-bottom: 0 !important;
-    }
-    #oferta li i {
-      font-size: 1.8rem !important;
-      margin-bottom: 0.5rem !important;
-      display: block !important;
-      color: #004aad !important;
-    }
-    #oferta li strong {
-      display: block !important;
-      font-size: 1.2rem !important;
-      margin-bottom: 0.5rem !important;
-    }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#o-nas">O nas</a>
-  <a href="#oferta">Oferta</a>
-  <a href="#korzysci">Dlaczego warto</a>
-  <a href="#opinie">Opinie</a>
-  <a href="#kontakt">Kontakt</a>
-</nav>
-
-<header>
-  <h1><i class="fa-solid fa-shield-alt"></i> MTI Ubezpieczenia</h1>
-  <p>Twoje bezpieczeństwo w najlepszych rękach</p>
-</header>
-
-<main>
-  <section id="o-nas" style="animation-delay: 0.1s;">
-    <h2><i class="fa-solid fa-circle-info"></i> O nas</h2>
-    <p>MTI Ubezpieczenia w Obornikach to firma prowadzona przez Macieja Iwanickiego, która od lat pomaga klientom w wyborze najlepszych rozwiązań ubezpieczeniowych dostosowanych do ich potrzeb i budżetu.</p>
-  </section>
-
-  <section id="oferta" style="animation-delay: 0.3s;">
-    <h2><i class="fa-solid fa-briefcase"></i> Nasza oferta ubezpieczeń</h2>
-    <p>W MTI oferujemy szeroki zakres ubezpieczeń dostosowanych do Twoich potrzeb i możliwości finansowych. Naszym celem jest zapewnienie najlepszej ochrony za rozsądną cenę.</p>
-    <ul>
-      <li><i class="fa-solid fa-car"></i> <strong>Ubezpieczenia komunikacyjne:</strong> OC, AC, Assistance, ubezpieczenie szyb i od nieszczęśliwych wypadków.</li>
-      <li><i class="fa-solid fa-house"></i> <strong>Ubezpieczenia majątkowe:</strong> domów, mieszkań, lokali użytkowych, od ognia i innych zdarzeń losowych.</li>
-      <li><i class="fa-solid fa-heart"></i> <strong>Ubezpieczenia na życie:</strong> ochrona finansowa Twoja i Twojej rodziny w razie nieprzewidzianych zdarzeń.</li>
-      <li><i class="fa-solid fa-hospital"></i> <strong>Ubezpieczenia zdrowotne:</strong> prywatna opieka medyczna, szybki dostęp do specjalistów, rehabilitacja.</li>
-      <li><i class="fa-solid fa-plane"></i> <strong>Ubezpieczenia turystyczne:</strong> ochrona podczas podróży krajowych i zagranicznych.</li>
-      <li><i class="fa-solid fa-building"></i> <strong>Ubezpieczenia dla firm:</strong> kompleksowa ochrona majątku i działalności gospodarczej.</li>
-    </ul>
-  </section>
-
-  <section id="korzysci" style="animation-delay: 0.5s;">
-    <h2><i class="fa-solid fa-thumbs-up"></i> Dlaczego warto wybrać MTI?</h2>
-    <p>Współpracując z nami zyskujesz:</p>
-    <ul>
-      <li><i class="fa-solid fa-handshake"></i> Indywidualne podejście i doradztwo na każdym etapie współpracy.</li>
-      <li><i class="fa-solid fa-tags"></i> Konkurencyjne ceny i elastyczne warunki ubezpieczeń.</li>
-      <li><i class="fa-solid fa-clock"></i> Szybką i bezproblemową likwidację szkód.</li>
-      <li><i class="fa-solid fa-network-wired"></i> Dostęp do szerokiej sieci partnerów i placówek.</li>
-      <li><i class="fa-solid fa-balance-scale"></i> Przejrzyste i uczciwe warunki umów.</li>
-      <li><i class="fa-solid fa-mobile-screen-button"></i> Nowoczesne narzędzia do zarządzania polisami online.</li>
-    </ul>
-  </section>
-
 <section id="opinie" class="opinions" style="animation-delay: 0.7s;">
   <h2><i class="fa-solid fa-comments"></i> Opinie klientów</h2>
 
   <div class="opinion">
-    <div class="opinion-name">Łukasz Nowak</div>
-    <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
+    <div class="opinion-name">Patrycja</div>
+    <div class="opinion-text">Profesjonalizm i indywidualne podejście do klienta.</div>
   </div>
   <div class="opinion">
-    <div class="opinion-name">Алена Ковальская</div>
-    <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
+    <div class="opinion-name">Natalia P.</div>
+    <div class="opinion-text">Super doradztwo, szybko i sprawnie załatwione wszystkie formalności.</div>
   </div>
   <div class="opinion">
-    <div class="opinion-name">Piotr</div>
-    <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
+    <div class="opinion-name">Krzysztof</div>
+    <div class="opinion-text">Dobra obsługa, szybka pomoc i atrakcyjne ceny.</div>
   </div>
 
   <!-- Ukryte opinie -->
   <div id="moreOpinions" style="display:none;">
     <div class="opinion">
-      <div class="opinion-name">Anna Kowalska</div>
-      <div class="opinion-text">Świetna obsługa i szybkie załatwienie sprawy!</div>
+      <div class="opinion-name">Agnieszka</div>
+      <div class="opinion-text">Jestem bardzo zadowolona z obsługi i indywidualnego podejścia.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Michał Nowak</div>
-      <div class="opinion-text">Profesjonalizm i indywidualne podejście do klienta.</div>
+      <div class="opinion-name">Piotr</div>
+      <div class="opinion-text">Polecam, pełen profesjonalizm i szybka reakcja na zgłoszenia.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Ewa Zielińska</div>
-      <div class="opinion-text">Polecam każdemu, kto szuka dobrego ubezpieczenia.</div>
+      <div class="opinion-name">Anna</div>
+      <div class="opinion-text">Bardzo miła i pomocna obsługa. Wszystko wytłumaczone jasno i zrozumiale.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Jan Kowalczyk</div>
-      <div class="opinion-text">Błyskawiczna pomoc i świetna obsługa. Na pewno wrócę.</div>
+      <div class="opinion-name">Marek</div>
+      <div class="opinion-text">Kompleksowa obsługa ubezpieczeniowa, polecam serdecznie.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Katarzyna Nowicka</div>
-      <div class="opinion-text">Zaufanie i pełen profesjonalizm. Polecam!</div>
+      <div class="opinion-name">Elżbieta</div>
+      <div class="opinion-text">Szybkie i sprawne załatwienie sprawy, profesjonalne podejście.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Tomasz Wójcik</div>
-      <div class="opinion-text">Konkretne i szybkie rozwiązania ubezpieczeniowe.</div>
+      <div class="opinion-name">Tomasz</div>
+      <div class="opinion-text">Rzetelna i fachowa pomoc, zawsze mogłem liczyć na wsparcie.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Monika Kamińska</div>
-      <div class="opinion-text">Sympatyczna obsługa i pomoc na każdym etapie.</div>
+      <div class="opinion-name">Magdalena</div>
+      <div class="opinion-text">Dziękuję za pomoc i profesjonalizm, zdecydowanie polecam.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Paweł Nowak</div>
-      <div class="opinion-text">Szybka reakcja i indywidualne podejście.</div>
+      <div class="opinion-name">Jan</div>
+      <div class="opinion-text">Bardzo miła obsługa, szybko załatwione wszystkie formalności.</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Magdalena Wiśniewska</div>
-      <div class="opinion-text">Dzięki nim czuję się bezpiecznie i pewnie.</div>
-    </div>
-    <div class="opinion">
-      <div class="opinion-name">Robert Lewandowski</div>
-      <div class="opinion-text">Profesjonalna obsługa i godne polecenia ubezpieczenia.</div>
+      <div class="opinion-name">Ewa</div>
+      <div class="opinion-text">Pełne wsparcie i doradztwo na każdym etapie, super kontakt.</div>
     </div>
   </div>
 
@@ -371,98 +59,7 @@
   </button>
 </section>
 
-  <section id="kontakt" style="animation-delay: 0.9s;">
-    <h2><i class="fa-solid fa-phone"></i> Kontakt</h2>
-    <p>Masz pytania? Skontaktuj się z nami! Wypełnij formularz lub zadzwoń pod numer:</p>
-    <p><strong>Telefon: <span>664 755 344</span></strong></p>
-    
-    <form class="contact-form" action="https://formspree.io/f/xpwldzgn" method="POST">
-      <label for="name">Imię i nazwisko</label>
-      <input type="text" id="name" name="name" placeholder="Twoje imię i nazwisko" required />
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Twój adres email" required />
-      
-      <label for="message">Wiadomość</label>
-      <textarea id="message" name="message" placeholder="Napisz wiadomość..." rows="5" required></textarea>
-      
-      <button type="submit">Wyślij</button>
-    </form>
-
-    <div class="location">
-      <h3><i class="fa-solid fa-location-dot"></i> Nasza lokalizacja</h3>
-      <p>Armii Poznań 7, 64-600 Oborniki</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2422.822204204524!2d16.808133715985034!3d52.65111187975907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47041a8c36355d15%3A0x7007cced9ec6739d!2sArmii%20Pozna%C5%84%207%2C%2064-600%20Oborniki!5e0!3m2!1spl!2spl!4v1690285485080!5m2!1spl!2spl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </section>
-</main>
-
-<footer>
-  &copy; 2025 MTI Ubezpieczenia. Wszelkie prawa zastrzeżone.
-</footer>
-
 <script>
-  const form = document.querySelector('.contact-form');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.');
-        form.reset();
-      } else {
-        alert('Coś poszło nie tak. Spróbuj ponownie.');
-      }
-    }).catch(() => {
-      alert('Coś poszło nie tak. Spróbuj ponownie.');
-    });
-  });
-
-  // Animowany scroll z offsetem (większy offset)
-  const navLinks = document.querySelectorAll('nav a');
-  const navbarHeight = document.querySelector('nav').offsetHeight;
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetID = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetID);
-      if (!targetSection) return;
-
-      // Pozycja sekcji minus wysokość navbaru i dodatkowy offset (np. 15px)
-      const targetPosition = targetSection.offsetTop - navbarHeight - 15;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth',
-      });
-    });
-  });
-
-  // Aktywny link w menu podczas scrollowania z marginesem tolerancji
-  const sections = document.querySelectorAll('main section');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.pageYOffset + navbarHeight + 20; // dodajemy tolerancję 20px
-
-    sections.forEach(section => {
-      if (scrollPos >= section.offsetTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  });
-
-  // Rozwijanie opinii
   const toggleBtn = document.getElementById('toggleOpinionsBtn');
   const moreOpinions = document.getElementById('moreOpinions');
 
@@ -476,6 +73,3 @@
     }
   });
 </script>
-
-</body>
-</html>
