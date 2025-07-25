@@ -174,6 +174,53 @@
     margin-top: 1.5rem;
     font-size: 1.15rem;
   }
+
+  /* RESPONSYWNOŚĆ - mobile */
+  @media (max-width: 768px) {
+    nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      flex: 1 1 45%;
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 0.7rem 0;
+    }
+
+    main {
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
+    .contact-form {
+      padding: 1rem 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    iframe {
+      height: 200px !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -223,61 +270,22 @@
     </ul>
   </section>
 
-<section id="opinie" class="opinions" style="animation-delay: 0.7s;">
-  <h2><i class="fa-solid fa-comments"></i> Opinie klientów</h2>
+  <section id="opinie" class="opinions" style="animation-delay: 0.7s;">
+    <h2><i class="fa-solid fa-comments"></i> Opinie klientów</h2>
 
-  <!-- Te 3 widoczne od razu -->
-  <div class="opinion">
-    <div class="opinion-name">Łukasz Nowak</div>
-    <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
-  </div>
-  <div class="opinion">
-    <div class="opinion-name">Алена Ковальская</div>
-    <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
-  </div>
-  <div class="opinion">
-    <div class="opinion-name">Piotr</div>
-    <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
-  </div>
-
-  <!-- Ukryte opinie -->
-  <div id="extraOpinions" style="display:none;">
     <div class="opinion">
-      <div class="opinion-name">Monika W.</div>
-      <div class="opinion-text">Świetna obsługa i szybkie załatwianie formalności. Polecam każdemu!</div>
+      <div class="opinion-name">Łukasz Nowak</div>
+      <div class="opinion-text">Zawsze szuka najlepszych rozwiązań. Polecam 🙂</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Tomasz K.</div>
-      <div class="opinion-text">Bardzo rzetelna firma, która pomaga w wyborze najlepszych polis.</div>
+      <div class="opinion-name">Алена Ковальская</div>
+      <div class="opinion-text">Super, polecam, jest profesjonalnym w swojej sprawie</div>
     </div>
     <div class="opinion">
-      <div class="opinion-name">Anna L.</div>
-      <div class="opinion-text">Jestem bardzo zadowolona z obsługi i doradztwa. Szczerze polecam.</div>
+      <div class="opinion-name">Piotr</div>
+      <div class="opinion-text">Bardzo miła, profesjonalna obsługa. Rzetelne podejście do klienta. Szeroki wachlarz usług.</div>
     </div>
-  </div>
-
-  <button id="showMoreBtn" style="margin-top: 1rem; background-color: #004aad; color: white; border:none; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer;">
-    Pokaż więcej opinii
-  </button>
-</section>
-
-<script>
-  const showMoreBtn = document.getElementById('showMoreBtn');
-  const extraOpinions = document.getElementById('extraOpinions');
-
-  showMoreBtn.addEventListener('click', () => {
-    if (extraOpinions.style.display === 'none') {
-      extraOpinions.style.display = 'block';
-      showMoreBtn.textContent = 'Pokaż mniej opinii';
-    } else {
-      extraOpinions.style.display = 'none';
-      showMoreBtn.textContent = 'Pokaż więcej opinii';
-      // Opcjonalnie przewiń do sekcji opinii, żeby użytkownik widział początek
-      document.getElementById('opinie').scrollIntoView({behavior: 'smooth'});
-    }
-  });
-</script>
-
+  </section>
 
   <section id="kontakt" style="animation-delay: 0.9s;">
     <h2><i class="fa-solid fa-phone"></i> Kontakt</h2>
