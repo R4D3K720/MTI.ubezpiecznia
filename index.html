@@ -67,7 +67,6 @@
     transform: translateY(20px);
     animation: fadeInUp 0.7s forwards;
   }
-  /* Animacja przy ładowaniu sekcji */
   @keyframes fadeInUp {
     to {
       opacity: 1;
@@ -84,7 +83,6 @@
     align-items: center;
     gap: 10px;
   }
-  /* Ikony przy nagłówkach */
   h2 i {
     color: #004aad;
     font-size: 1.5rem;
@@ -103,7 +101,6 @@
     gap: 10px;
     font-size: 1.1rem;
   }
-  /* Ikony przy punktach oferty */
   li i {
     color: #004aad;
     font-size: 1.2rem;
@@ -184,7 +181,6 @@
       font-size: 0.9rem;
       height: auto;
     }
-
     nav a {
       flex: 1 1 45%;
       text-align: center;
@@ -193,39 +189,30 @@
       border-radius: 20px;
       transition: background-color 0.3s ease;
     }
-
     main {
       margin: 1.5rem auto;
       padding: 0 1rem;
     }
-
     header h1 {
       font-size: 2rem;
     }
-
     section {
       margin-bottom: 2.5rem;
     }
-
     p, li {
       font-size: 1rem;
     }
-
     .contact-form {
       padding: 1rem 1rem;
     }
-
     button {
       width: 100%;
       padding: 1rem;
       font-size: 1.2rem;
     }
-
     iframe {
       height: 200px !important;
     }
-
-    /* TYLKO DLA OFERTY - układ pionowy, wyśrodkowany i kreski */
     #oferta ul {
       margin-left: auto !important;
       margin-right: auto !important;
@@ -433,9 +420,10 @@
     });
   });
 
-  // Animowany scroll z offsetem (większy offset)
+  // Płynne przewijanie z poprawnym offsetem i podświetlaniem aktywnej sekcji
   const navLinks = document.querySelectorAll('nav a');
-  const navbarHeight = document.querySelector('nav').offsetHeight;
+  const navbar = document.querySelector('nav');
+  const navbarHeight = navbar.offsetHeight;
 
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -444,24 +432,21 @@
       const targetSection = document.getElementById(targetID);
       if (!targetSection) return;
 
-      // Pozycja sekcji minus wysokość navbaru i dodatkowy offset (np. 15px)
-      const targetPosition = targetSection.offsetTop - navbarHeight - 15;
+      const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
 
       window.scrollTo({
         top: targetPosition,
-        behavior: 'smooth',
+        behavior: 'smooth'
       });
     });
   });
 
-  // Aktywny link w menu podczas scrollowania z marginesem tolerancji
-  const sections = document.querySelectorAll('main section');
   window.addEventListener('scroll', () => {
     let current = '';
-    const scrollPos = window.pageYOffset + navbarHeight + 20; // dodajemy tolerancję 20px
+    const scrollPos = window.pageYOffset + navbarHeight + 20;
 
-    sections.forEach(section => {
-      if (scrollPos >= section.offsetTop) {
+    document.querySelectorAll('main section').forEach(section => {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
         current = section.getAttribute('id');
       }
     });
@@ -472,20 +457,6 @@
         link.classList.add('active');
       }
     });
-  });
-
-  // Rozwijanie opinii
-  const toggleBtn = document.getElementById('toggleOpinionsBtn');
-  const moreOpinions = document.getElementById('moreOpinions');
-
-  toggleBtn.addEventListener('click', () => {
-    if (moreOpinions.style.display === 'none') {
-      moreOpinions.style.display = 'block';
-      toggleBtn.textContent = 'Pokaż mniej opinii';
-    } else {
-      moreOpinions.style.display = 'none';
-      toggleBtn.textContent = 'Pokaż więcej opinii';
-    }
   });
 </script>
 
